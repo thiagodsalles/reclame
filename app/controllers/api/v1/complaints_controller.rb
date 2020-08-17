@@ -2,7 +2,15 @@ class Api::V1::ComplaintsController < ApplicationController
   before_action :set_complaint, only: %i[show update destroy]
 
   def index
-    @complaints = Complaint.all
+    @complaints = SearchComplaintQuery.new.call(
+      title: params[:title],
+      company: params[:company],
+      country: params[:country],
+      state: params[:state],
+      city: params[:city],
+      latitude: params[:latitude],
+      longitude: params[:longitude]
+    )
     render json: @complaints
   end
 
