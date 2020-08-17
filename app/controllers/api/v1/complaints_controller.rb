@@ -9,7 +9,8 @@ class Api::V1::ComplaintsController < ApplicationController
       state: params[:state],
       city: params[:city],
       latitude: params[:latitude],
-      longitude: params[:longitude]
+      longitude: params[:longitude],
+      suburb: params[:suburb]
     )
     render json: @complaints
   end
@@ -32,7 +33,7 @@ class Api::V1::ComplaintsController < ApplicationController
 
   # def update
   #   allowed_params = params.require(:complaint).permit(:title, :description, :company, :country,
-  #                                                      :state, :city, :latitude, :latitude)
+  #                                                      :state, :city, :latitude, :latitude, :suburb)
   #   if @complaint.update(allowed_params)
   #     render json: @complaint
   #   else

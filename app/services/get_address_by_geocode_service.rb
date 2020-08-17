@@ -10,6 +10,7 @@ class GetAddressByGeocodeService < ApplicationService
       country: data['address']['country'],
       state: data['address']['state'],
       city: data['address']['city'],
+      suburb: data['address']['suburb'],
       latitude: data['lat'],
       longitude: data['lon']
     }

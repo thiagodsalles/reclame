@@ -3,7 +3,7 @@ class SearchComplaintQuery
     @relation = relation
   end
 
-  def call(title: nil, company: nil, country: nil, state: nil, city: nil, latitude: nil, longitude: nil)
+  def call(title: nil, company: nil, country: nil, state: nil, city: nil, latitude: nil, longitude: nil, suburb: nil)
     @relation = @relation.where(title: title) if title
     @relation = @relation.where(company: company) if company
     @relation = @relation.where(country: country) if country
@@ -11,6 +11,7 @@ class SearchComplaintQuery
     @relation = @relation.where(city: city) if city
     @relation = @relation.where(latitude: latitude) if latitude
     @relation = @relation.where(longitude: longitude) if longitude
+    @relation = @relation.where(suburb: suburb) if suburb
     @relation
   end
 end
