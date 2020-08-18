@@ -33,7 +33,7 @@ class Api::V1::ComplaintsController < ApplicationController
 
   def update
     allowed_params = params.require(:complaint).permit(:title, :description, :company, :country, :state, :city,
-                                                       :latitude, :latitude, :suburb)
+                                                       :latitude, :longitude, :suburb)
     if @complaint.update(allowed_params)
       render json: @complaint
     else
