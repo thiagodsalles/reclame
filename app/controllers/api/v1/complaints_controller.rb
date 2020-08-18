@@ -15,9 +15,9 @@ class Api::V1::ComplaintsController < ApplicationController
     render json: @complaints
   end
 
-  # def show
-  #   render json: @complaint
-  # end
+  def show
+    render json: @complaint
+  end
 
   def create
     allowed_params = params.require(:complaint).permit(:title, :description, :company)
@@ -31,19 +31,19 @@ class Api::V1::ComplaintsController < ApplicationController
     end
   end
 
-  # def update
-  #   allowed_params = params.require(:complaint).permit(:title, :description, :company, :country,
-  #                                                      :state, :city, :latitude, :latitude, :suburb)
-  #   if @complaint.update(allowed_params)
-  #     render json: @complaint
-  #   else
-  #     render json: @complaint.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    allowed_params = params.require(:complaint).permit(:title, :description, :company, :country, :state, :city,
+                                                       :latitude, :latitude, :suburb)
+    if @complaint.update(allowed_params)
+      render json: @complaint
+    else
+      render json: @complaint.errors, status: :unprocessable_entity
+    end
+  end
 
-  # def destroy
-  #   @complaint.destroy
-  # end
+  def destroy
+    render json: { message: 'deleted successfully' } if @complaint.destroy
+  end
 
   private
 
