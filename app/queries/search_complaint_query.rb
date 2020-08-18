@@ -4,14 +4,10 @@ class SearchComplaintQuery
   end
 
   def call(title: nil, company: nil, country: nil, state: nil, city: nil, latitude: nil, longitude: nil, suburb: nil)
-    @relation = @relation.where(title: title) if title
-    @relation = @relation.where(company: company) if company
-    @relation = @relation.where(country: country) if country
-    @relation = @relation.where(state: state) if state
-    @relation = @relation.where(city: city) if city
-    @relation = @relation.where(latitude: latitude) if latitude
-    @relation = @relation.where(longitude: longitude) if longitude
-    @relation = @relation.where(suburb: suburb) if suburb
+    method(__method__).parameters.each do |_, parameter|
+      value = binding.local_variable_get(parameter)
+      @relation = @relation.where(parameter => value) if value
+    end
     @relation
   end
 end
