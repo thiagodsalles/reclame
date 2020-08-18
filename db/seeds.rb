@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Complaint.create(title: 'Meu celular não liga', description: 'Meu celular deu tela branca e depois disso ele não inicia',
+                 company: 'Ponto Frio', country: 'Brasil', state: 'Rio de Janeiro', city: 'Rio de Janeiro',
+                 latitude: '-22.9905557', longitude: '-43.4627601', suburb: 'Vargem Pequena')
+
+10.times do
+  Complaint.create(title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.paragraph,
+                   company: Faker::Company.name, country: Faker::Address.country, state: Faker::Address.state,
+                   city: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+                   suburb: Faker::Address.street_name)
+end
