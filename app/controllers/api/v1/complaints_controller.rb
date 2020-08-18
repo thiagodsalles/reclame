@@ -20,11 +20,8 @@ class Api::V1::ComplaintsController < ApplicationController
   end
 
   def create
-    locale_params = params[:complaint][:locale]
-    render json: { locale: ["can't be blank"] }, status: :unprocessable_entity and return unless locale_params
-
     allowed_params = params.require(:complaint).permit(:title, :description, :company)
-    address_data   = GetAddressByGeocodeService.call(locale_params)
+    address_data   = GetAddressByGeocodeService.call(params[:complaint][:locale])
     @complaint     = Complaint.new(allowed_params.merge(address_data))
 
     if @complaint.save
