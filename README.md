@@ -9,13 +9,21 @@
 ### Topics
 
 :small_blue_diamond: [Project descriptions](#project-descriptions)
+
 :small_blue_diamond: [Functionalities](#functionalities)
+
 :small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+
 :small_blue_diamond: [Prerequisites](#prerequisites)
+
 :small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
+
 :small_blue_diamond: [How to run the tests](#how-to-run-the-tests)
+
 :small_blue_diamond: [Endpoints](#endpoints)
+
 :small_blue_diamond: [JSON](#json-floppy_disk)
+
 :small_blue_diamond: [Gems added](#gems-added-gem)
 
 ## Project descriptions 
@@ -33,8 +41,11 @@ Endpoints for querying, editing and deleting data will be available
 ## Functionalities
 
 :heavy_check_mark: Receive complaint data via API
+
 :heavy_check_mark: Search complaints through filters via API
+
 :heavy_check_mark: Edit complaint data via API
+
 :heavy_check_mark: Delete complaints via API
 
 ## Prerequisites
