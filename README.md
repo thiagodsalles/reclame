@@ -12,8 +12,6 @@
 
 :small_blue_diamond: [Functionalities](#functionalities)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
-
 :small_blue_diamond: [Prerequisites](#prerequisites)
 
 :small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
