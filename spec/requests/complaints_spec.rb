@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Complaints', type: :request do
   let!(:complaint) { create :complaint }
-  #let!(:complaint_two) { create :complaint, title: 'mytitle' } fazer outro let com parametros diferentes
+  let!(:complaint_two) do
+    create :complaint, title: 'mytitle', company: 'company2', country: 'country2', state: 'state2',
+                       city: 'city2', latitude: 11, longitude: 11, suburb: 'suburb2'
+  end
 
   describe 'GET /complaints' do
     context 'without params' do
@@ -19,8 +22,6 @@ RSpec.describe 'Complaints', type: :request do
     end
 
     context 'with filters params' do
-
-      #criar um context para cada filter
       context 'title' do
         let(:params) { { title: 'title' } }
 
@@ -33,6 +34,111 @@ RSpec.describe 'Complaints', type: :request do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
             .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'company' do
+        let(:params) { { company: 'company' } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'country' do
+        let(:params) { { country: 'country' } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'state' do
+        let(:params) { { state: 'state' } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'city' do
+        let(:params) { { city: 'city' } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'latitude' do
+        let(:params) { { latitude: 10 } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'longitude' do
+        let(:params) { { longitude: 10 } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+        end
+      end
+
+      context 'suburb' do
+        let(:params) { { suburb: 'suburb' } }
+
+        it 'has status code 200' do
+          get api_v1_complaints_path, params: params
+          expect(response).to have_http_status(200)
+        end
+
+        it 'response body' do
+          get api_v1_complaints_path, params: params
+          expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
+              .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
     end
@@ -52,7 +158,7 @@ RSpec.describe 'Complaints', type: :request do
 
     context 'when not found' do
       it 'has status code 404' do
-        get "/api/v1/complaints/#{complaint.id + 1}"
+        get "/api/v1/complaints/#{complaint.id + 2}"
         expect(response).to have_http_status(404)
       end
     end
