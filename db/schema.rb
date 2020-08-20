@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_234432) do
-
+ActiveRecord::Schema.define(version: 20_200_817_234_432) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "complaints", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "company"
-    t.string "country"
-    t.string "state"
-    t.string "city"
-    t.string "latitude"
-    t.string "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "suburb"
+  create_table 'complaints', force: :cascade do |t|
+    t.string 'title'
+    t.text 'description'
+    t.string 'company'
+    t.string 'country'
+    t.string 'state'
+    t.string 'city'
+    t.string 'latitude'
+    t.string 'longitude'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'suburb'
   end
-
 end

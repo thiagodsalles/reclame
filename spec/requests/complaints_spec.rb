@@ -48,7 +48,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -63,7 +63,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -78,7 +78,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -93,7 +93,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -108,7 +108,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -123,7 +123,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
 
@@ -138,7 +138,7 @@ RSpec.describe 'Complaints', type: :request do
         it 'response body' do
           get api_v1_complaints_path, params: params
           expect(JSON.parse(response.body).first.except('created_at', 'updated_at'))
-              .to eq(complaint.as_json.except('created_at', 'updated_at'))
+            .to eq(complaint.as_json.except('created_at', 'updated_at'))
         end
       end
     end
@@ -164,7 +164,6 @@ RSpec.describe 'Complaints', type: :request do
     end
   end
 
-
   describe 'POST /complaints' do
     let(:complaint) { attributes_for :complaint }
 
@@ -176,10 +175,10 @@ RSpec.describe 'Complaints', type: :request do
     it 'response body' do
       post api_v1_complaints_path, params: { complaint: { **complaint, locale: [10, 10] } }
       expect(JSON.parse(response.body, symbolize_names: true).except(:id, :created_at, :updated_at))
-          .to eq({title: 'title', description: 'description', company: 'company', country: 'Nigeria', state: 'Bauchi', city: 'Mun-Munsal', latitude: '10.01106025', longitude: '9.962352200691214', 'suburb': nil})
+        .to eq({ title: 'title', description: 'description', company: 'company', country: 'Nigeria', state: 'Bauchi',
+                 city: 'Mun-Munsal', latitude: '10.01106025', longitude: '9.962352200691214', 'suburb': nil })
     end
   end
-
 
   describe 'PUT /complaints/:id' do
     it 'has status code 200' do
@@ -201,9 +200,8 @@ RSpec.describe 'Complaints', type: :request do
 
     it 'response body' do
       delete "/api/v1/complaints/#{complaint.id}"
-      expect(JSON.parse(response.body).except('created_at', 'updated_at')).to eq(complaint.as_json.except('created_at', 'updated_at'))
+      expect(JSON.parse(response.body).except('created_at', 'updated_at'))
+        .to eq(complaint.as_json.except('created_at', 'updated_at'))
     end
   end
 end
-
-

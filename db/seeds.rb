@@ -1,4 +1,4 @@
-Complaint.create(title: 'Meu celular não liga', description: 'Meu celular deu tela branca e depois disso ele não inicia',
+Complaint.create(title: 'Meu celular não liga', description: 'Meu celular deu tela branca e ele não inicia',
                  company: 'Ponto Frio', country: 'Brasil', state: 'Rio de Janeiro', city: 'Rio de Janeiro',
                  latitude: '-22.9905557', longitude: '-43.4627601', suburb: 'Vargem Pequena')
 
